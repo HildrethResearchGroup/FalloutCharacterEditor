@@ -1,0 +1,578 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		849158112CB6D6880044A6E5 /* Fallout_Save_EditorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849158102CB6D6880044A6E5 /* Fallout_Save_EditorApp.swift */; };
+		849158132CB6D6880044A6E5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849158122CB6D6880044A6E5 /* ContentView.swift */; };
+		849158152CB6D6890044A6E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 849158142CB6D6890044A6E5 /* Assets.xcassets */; };
+		849158182CB6D6890044A6E5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 849158172CB6D6890044A6E5 /* Preview Assets.xcassets */; };
+		849158232CB6D6890044A6E5 /* Fallout_Save_EditorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849158222CB6D6890044A6E5 /* Fallout_Save_EditorTests.swift */; };
+		8491582D2CB6D6890044A6E5 /* Fallout_Save_EditorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8491582C2CB6D6890044A6E5 /* Fallout_Save_EditorUITests.swift */; };
+		8491582F2CB6D6890044A6E5 /* Fallout_Save_EditorUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8491582E2CB6D6890044A6E5 /* Fallout_Save_EditorUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8491581F2CB6D6890044A6E5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 849158052CB6D6880044A6E5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8491580C2CB6D6880044A6E5;
+			remoteInfo = "Fallout Save Editor";
+		};
+		849158292CB6D6890044A6E5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 849158052CB6D6880044A6E5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8491580C2CB6D6880044A6E5;
+			remoteInfo = "Fallout Save Editor";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		8491580D2CB6D6880044A6E5 /* Fallout Save Editor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fallout Save Editor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		849158102CB6D6880044A6E5 /* Fallout_Save_EditorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fallout_Save_EditorApp.swift; sourceTree = "<group>"; };
+		849158122CB6D6880044A6E5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		849158142CB6D6890044A6E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		849158172CB6D6890044A6E5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		849158192CB6D6890044A6E5 /* Fallout_Save_Editor.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Fallout_Save_Editor.entitlements; sourceTree = "<group>"; };
+		8491581E2CB6D6890044A6E5 /* Fallout Save EditorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Fallout Save EditorTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		849158222CB6D6890044A6E5 /* Fallout_Save_EditorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fallout_Save_EditorTests.swift; sourceTree = "<group>"; };
+		849158282CB6D6890044A6E5 /* Fallout Save EditorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Fallout Save EditorUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8491582C2CB6D6890044A6E5 /* Fallout_Save_EditorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fallout_Save_EditorUITests.swift; sourceTree = "<group>"; };
+		8491582E2CB6D6890044A6E5 /* Fallout_Save_EditorUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fallout_Save_EditorUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8491580A2CB6D6880044A6E5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8491581B2CB6D6890044A6E5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		849158252CB6D6890044A6E5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		849158042CB6D6880044A6E5 = {
+			isa = PBXGroup;
+			children = (
+				8491580F2CB6D6880044A6E5 /* Fallout Save Editor */,
+				849158212CB6D6890044A6E5 /* Fallout Save EditorTests */,
+				8491582B2CB6D6890044A6E5 /* Fallout Save EditorUITests */,
+				8491580E2CB6D6880044A6E5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8491580E2CB6D6880044A6E5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8491580D2CB6D6880044A6E5 /* Fallout Save Editor.app */,
+				8491581E2CB6D6890044A6E5 /* Fallout Save EditorTests.xctest */,
+				849158282CB6D6890044A6E5 /* Fallout Save EditorUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8491580F2CB6D6880044A6E5 /* Fallout Save Editor */ = {
+			isa = PBXGroup;
+			children = (
+				849158102CB6D6880044A6E5 /* Fallout_Save_EditorApp.swift */,
+				849158122CB6D6880044A6E5 /* ContentView.swift */,
+				849158142CB6D6890044A6E5 /* Assets.xcassets */,
+				849158192CB6D6890044A6E5 /* Fallout_Save_Editor.entitlements */,
+				849158162CB6D6890044A6E5 /* Preview Content */,
+			);
+			path = "Fallout Save Editor";
+			sourceTree = "<group>";
+		};
+		849158162CB6D6890044A6E5 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				849158172CB6D6890044A6E5 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		849158212CB6D6890044A6E5 /* Fallout Save EditorTests */ = {
+			isa = PBXGroup;
+			children = (
+				849158222CB6D6890044A6E5 /* Fallout_Save_EditorTests.swift */,
+			);
+			path = "Fallout Save EditorTests";
+			sourceTree = "<group>";
+		};
+		8491582B2CB6D6890044A6E5 /* Fallout Save EditorUITests */ = {
+			isa = PBXGroup;
+			children = (
+				8491582C2CB6D6890044A6E5 /* Fallout_Save_EditorUITests.swift */,
+				8491582E2CB6D6890044A6E5 /* Fallout_Save_EditorUITestsLaunchTests.swift */,
+			);
+			path = "Fallout Save EditorUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8491580C2CB6D6880044A6E5 /* Fallout Save Editor */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 849158322CB6D6890044A6E5 /* Build configuration list for PBXNativeTarget "Fallout Save Editor" */;
+			buildPhases = (
+				849158092CB6D6880044A6E5 /* Sources */,
+				8491580A2CB6D6880044A6E5 /* Frameworks */,
+				8491580B2CB6D6880044A6E5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Fallout Save Editor";
+			productName = "Fallout Save Editor";
+			productReference = 8491580D2CB6D6880044A6E5 /* Fallout Save Editor.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8491581D2CB6D6890044A6E5 /* Fallout Save EditorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 849158352CB6D6890044A6E5 /* Build configuration list for PBXNativeTarget "Fallout Save EditorTests" */;
+			buildPhases = (
+				8491581A2CB6D6890044A6E5 /* Sources */,
+				8491581B2CB6D6890044A6E5 /* Frameworks */,
+				8491581C2CB6D6890044A6E5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				849158202CB6D6890044A6E5 /* PBXTargetDependency */,
+			);
+			name = "Fallout Save EditorTests";
+			productName = "Fallout Save EditorTests";
+			productReference = 8491581E2CB6D6890044A6E5 /* Fallout Save EditorTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		849158272CB6D6890044A6E5 /* Fallout Save EditorUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 849158382CB6D6890044A6E5 /* Build configuration list for PBXNativeTarget "Fallout Save EditorUITests" */;
+			buildPhases = (
+				849158242CB6D6890044A6E5 /* Sources */,
+				849158252CB6D6890044A6E5 /* Frameworks */,
+				849158262CB6D6890044A6E5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8491582A2CB6D6890044A6E5 /* PBXTargetDependency */,
+			);
+			name = "Fallout Save EditorUITests";
+			productName = "Fallout Save EditorUITests";
+			productReference = 849158282CB6D6890044A6E5 /* Fallout Save EditorUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		849158052CB6D6880044A6E5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1540;
+				LastUpgradeCheck = 1540;
+				TargetAttributes = {
+					8491580C2CB6D6880044A6E5 = {
+						CreatedOnToolsVersion = 15.4;
+					};
+					8491581D2CB6D6890044A6E5 = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = 8491580C2CB6D6880044A6E5;
+					};
+					849158272CB6D6890044A6E5 = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = 8491580C2CB6D6880044A6E5;
+					};
+				};
+			};
+			buildConfigurationList = 849158082CB6D6880044A6E5 /* Build configuration list for PBXProject "Fallout Save Editor" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 849158042CB6D6880044A6E5;
+			productRefGroup = 8491580E2CB6D6880044A6E5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8491580C2CB6D6880044A6E5 /* Fallout Save Editor */,
+				8491581D2CB6D6890044A6E5 /* Fallout Save EditorTests */,
+				849158272CB6D6890044A6E5 /* Fallout Save EditorUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8491580B2CB6D6880044A6E5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				849158182CB6D6890044A6E5 /* Preview Assets.xcassets in Resources */,
+				849158152CB6D6890044A6E5 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8491581C2CB6D6890044A6E5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		849158262CB6D6890044A6E5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		849158092CB6D6880044A6E5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				849158132CB6D6880044A6E5 /* ContentView.swift in Sources */,
+				849158112CB6D6880044A6E5 /* Fallout_Save_EditorApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8491581A2CB6D6890044A6E5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				849158232CB6D6890044A6E5 /* Fallout_Save_EditorTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		849158242CB6D6890044A6E5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8491582F2CB6D6890044A6E5 /* Fallout_Save_EditorUITestsLaunchTests.swift in Sources */,
+				8491582D2CB6D6890044A6E5 /* Fallout_Save_EditorUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		849158202CB6D6890044A6E5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8491580C2CB6D6880044A6E5 /* Fallout Save Editor */;
+			targetProxy = 8491581F2CB6D6890044A6E5 /* PBXContainerItemProxy */;
+		};
+		8491582A2CB6D6890044A6E5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8491580C2CB6D6880044A6E5 /* Fallout Save Editor */;
+			targetProxy = 849158292CB6D6890044A6E5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		849158302CB6D6890044A6E5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		849158312CB6D6890044A6E5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		849158332CB6D6890044A6E5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Fallout Save Editor/Fallout_Save_Editor.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Fallout Save Editor/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "VaultCoders.Fallout-Save-Editor";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		849158342CB6D6890044A6E5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Fallout Save Editor/Fallout_Save_Editor.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Fallout Save Editor/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "VaultCoders.Fallout-Save-Editor";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		849158362CB6D6890044A6E5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "VaultCoders.Fallout-Save-EditorTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Fallout Save Editor.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Fallout Save Editor";
+			};
+			name = Debug;
+		};
+		849158372CB6D6890044A6E5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "VaultCoders.Fallout-Save-EditorTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Fallout Save Editor.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Fallout Save Editor";
+			};
+			name = Release;
+		};
+		849158392CB6D6890044A6E5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "VaultCoders.Fallout-Save-EditorUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = "Fallout Save Editor";
+			};
+			name = Debug;
+		};
+		8491583A2CB6D6890044A6E5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "VaultCoders.Fallout-Save-EditorUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = "Fallout Save Editor";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		849158082CB6D6880044A6E5 /* Build configuration list for PBXProject "Fallout Save Editor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				849158302CB6D6890044A6E5 /* Debug */,
+				849158312CB6D6890044A6E5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		849158322CB6D6890044A6E5 /* Build configuration list for PBXNativeTarget "Fallout Save Editor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				849158332CB6D6890044A6E5 /* Debug */,
+				849158342CB6D6890044A6E5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		849158352CB6D6890044A6E5 /* Build configuration list for PBXNativeTarget "Fallout Save EditorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				849158362CB6D6890044A6E5 /* Debug */,
+				849158372CB6D6890044A6E5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		849158382CB6D6890044A6E5 /* Build configuration list for PBXNativeTarget "Fallout Save EditorUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				849158392CB6D6890044A6E5 /* Debug */,
+				8491583A2CB6D6890044A6E5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 849158052CB6D6880044A6E5 /* Project object */;
+}
