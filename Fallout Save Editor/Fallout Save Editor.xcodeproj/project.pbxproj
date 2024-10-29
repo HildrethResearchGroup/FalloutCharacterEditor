@@ -14,6 +14,7 @@
 		849158232CB6D6890044A6E5 /* Fallout_Save_EditorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849158222CB6D6890044A6E5 /* Fallout_Save_EditorTests.swift */; };
 		8491582D2CB6D6890044A6E5 /* Fallout_Save_EditorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8491582C2CB6D6890044A6E5 /* Fallout_Save_EditorUITests.swift */; };
 		8491582F2CB6D6890044A6E5 /* Fallout_Save_EditorUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8491582E2CB6D6890044A6E5 /* Fallout_Save_EditorUITestsLaunchTests.swift */; };
+		D62D0EFA2CD09B43009167A7 /* Pack in Frameworks */ = {isa = PBXBuildFile; productRef = D62D0EF92CD09B43009167A7 /* Pack */; };
 		D686E86A2CB6EF890048B97A /* FileReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686E8692CB6EF890048B97A /* FileReader.swift */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D62D0EFA2CD09B43009167A7 /* Pack in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,6 +150,9 @@
 			dependencies = (
 			);
 			name = "Fallout Save Editor";
+			packageProductDependencies = (
+				D62D0EF92CD09B43009167A7 /* Pack */,
+			);
 			productName = "Fallout Save Editor";
 			productReference = 8491580D2CB6D6880044A6E5 /* Fallout Save Editor.app */;
 			productType = "com.apple.product-type.application";
@@ -220,6 +225,9 @@
 				Base,
 			);
 			mainGroup = 849158042CB6D6880044A6E5;
+			packageReferences = (
+				D62D0EF82CD09B1F009167A7 /* XCRemoteSwiftPackageReference "Pack" */,
+			);
 			productRefGroup = 8491580E2CB6D6880044A6E5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -577,6 +585,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D62D0EF82CD09B1F009167A7 /* XCRemoteSwiftPackageReference "Pack" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mattcox/Pack.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D62D0EF92CD09B43009167A7 /* Pack */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D62D0EF82CD09B1F009167A7 /* XCRemoteSwiftPackageReference "Pack" */;
+			productName = Pack;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 849158052CB6D6880044A6E5 /* Project object */;
 }

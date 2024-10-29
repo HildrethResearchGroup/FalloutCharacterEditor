@@ -1,0 +1,15 @@
+{
+  "originHash" : "f06af18c10b9e69ba6a8e1e7e79a128ee28bef823eed7d125441dd4b268ba7c4",
+  "pins" : [
+    {
+      "identity" : "pack",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/mattcox/Pack.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "570f73d0d94aa90a6a2dbab7ed60878dad5f3fd1"
+      }
+    }
+  ],
+  "version" : 3
+}

@@ -5,6 +5,7 @@
 //  Created by Thomas Coates on 10/9/24.
 //
 import Foundation
+import Pack
 
 class FileReader: ObservableObject {
     @Published var urlToPresent: URL? = nil
@@ -15,40 +16,25 @@ class FileReader: ObservableObject {
         urlToPresent?.lastPathComponent ?? "No File Selected"
     }
 
-    // Function to read file and update the file size
-    func updateContent() {
-        guard let url = urlToPresent else {
-            fileSize = stringForError(.noURL)
-            return
-        }
-
+    // Load save file and update the file size
+    func loadSaveFile(from url: URL) {
         do {
-            // Read the file content as binary data
             let fileData = try Data(contentsOf: url)
-
-            // Get file size in bytes
-            let fileSizeInBytes = fileData.count
-            fileSize = "File size: \(fileSizeInBytes) bytes"
-            
+            fileSize = "File size: \(fileData.count) bytes"
+            unpackSaveData(from: fileData)
         } catch {
-            // Handle errors related to file reading
-            fileSize = stringForError(.noDataAtURL(url: url))
+            fileSize = "Failed to read file data."
         }
     }
 
-    // Custom error enum to handle different file reading issues
-    enum ReaderError: Error {
-        case noURL
-        case noDataAtURL(url: URL)
-    }
+    private func unpackSaveData(from data: Data) {
+        print("Unpacking save data...")
 
-    // Function to generate a user-friendly message for errors
-    func stringForError(_ error: ReaderError) -> String {
-        switch error {
-        case .noURL:
-            return "No file has been selected."
-        case let .noDataAtURL(url):
-            return "File does not contain valid data: \(url.absoluteString)."
+        // Unpacking the character name
+        let characterNameData = data.subdata(in: 0x1D..<(0x1D + 32))
+        if let characterName = String(data: characterNameData, encoding: .utf8) {
+            print("Character Name: \(characterName)")
         }
     }
 }
+
