@@ -4,22 +4,25 @@
 //
 //  Created by Kyle Collins on 10/9/24.
 //
-
 import SwiftUI
+import UniformTypeIdentifiers
 
 struct ContentView: View {
-    @StateObject private var fileReader = FileReader() // Initialize FileReader as a state object
-    @State private var isFileImporterPresented = false // State for handling file importer presentation
+    @StateObject private var fileReader = FileReader()
+    @State private var isFileImporterPresented = false
+    
+    // Define a custom UTType for .DAT files
+    let datFileType = UTType(filenameExtension: "dat") ?? .data
 
     var body: some View {
         VStack {
             Text("Selected File: \(fileReader.fileName)")
                 .padding()
 
-            Text(fileReader.content)
+            Text(fileReader.fileSize) // Display file size
                 .padding()
                 .border(Color.gray, width: 1)
-                .frame(height: 200) // Set a fixed height for the Text view
+                .frame(height: 50)
             
             Button("Select File") {
                 isFileImporterPresented.toggle()
@@ -27,14 +30,14 @@ struct ContentView: View {
             .padding()
             .fileImporter(
                 isPresented: $isFileImporterPresented,
-                allowedContentTypes: [.plainText],
+                allowedContentTypes: [datFileType], // Accept only .DAT files
                 onCompletion: { result in
                     switch result {
                     case .success(let url):
                         fileReader.urlToPresent = url
-                        fileReader.updateContent()
+                        fileReader.updateContent() // read the file and display its size
                     case .failure(let error):
-                        fileReader.content = "File selection failed: \(error.localizedDescription)"
+                        fileReader.fileSize = "File selection failed: \(error.localizedDescription)"
                     }
                 }
             )

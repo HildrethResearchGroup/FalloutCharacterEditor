@@ -8,36 +8,47 @@ import Foundation
 
 class FileReader: ObservableObject {
     @Published var urlToPresent: URL? = nil
-    @Published var content: String = "No File Selected"
+    @Published var fileSize: String = "No File Selected"
 
     // Computed property to display the selected file name
     var fileName: String {
-        urlToPresent?.lastPathComponent ?? "‹No File Selected>"
+        urlToPresent?.lastPathComponent ?? "No File Selected"
     }
 
-    // Function to update the content by reading from the file URL
+    // Function to read file and update the file size
     func updateContent() {
         guard let url = urlToPresent else {
-            content = "No URL has been provided."
+            fileSize = stringForError(.noURL)
             return
         }
 
-        // Start accessing the security-scoped resource
-        if url.startAccessingSecurityScopedResource() {
-            defer { url.stopAccessingSecurityScopedResource() } // Ensure we stop accessing after we're done
+        do {
+            // Read the file content as binary data
+            let fileData = try Data(contentsOf: url)
 
-            do {
-                // Attempt to read the file content as a String
-                let fileContent = try String(contentsOf: url, encoding: .utf8)
-                content = fileContent
-            } catch {
-                // Handle errors related to file reading
-                content = "Failed to read file content: \(error.localizedDescription)"
-            }
-        } else {
-            // If unable to access the resource, display an appropriate message
-            content = "Failed to gain access to the file. Please check permissions."
+            // Get file size in bytes
+            let fileSizeInBytes = fileData.count
+            fileSize = "File size: \(fileSizeInBytes) bytes"
+            
+        } catch {
+            // Handle errors related to file reading
+            fileSize = stringForError(.noDataAtURL(url: url))
+        }
+    }
+
+    // Custom error enum to handle different file reading issues
+    enum ReaderError: Error {
+        case noURL
+        case noDataAtURL(url: URL)
+    }
+
+    // Function to generate a user-friendly message for errors
+    func stringForError(_ error: ReaderError) -> String {
+        switch error {
+        case .noURL:
+            return "No file has been selected."
+        case let .noDataAtURL(url):
+            return "File does not contain valid data: \(url.absoluteString)."
         }
     }
 }
-
