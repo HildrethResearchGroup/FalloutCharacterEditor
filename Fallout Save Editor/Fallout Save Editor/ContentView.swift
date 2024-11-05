@@ -27,6 +27,11 @@ struct ContentView: View {
             Button("Select File") {
                 isFileImporterPresented.toggle()
             }
+            Button("Cancel"){
+                //change button activity
+            }
+            .buttonStyle(.borderedProminent)
+            
             .padding()
             .fileImporter(
                 isPresented: $isFileImporterPresented,
