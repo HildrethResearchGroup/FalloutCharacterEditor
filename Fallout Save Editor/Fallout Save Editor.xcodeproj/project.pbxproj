@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,7 +15,7 @@
 		8491582D2CB6D6890044A6E5 /* Fallout_Save_EditorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8491582C2CB6D6890044A6E5 /* Fallout_Save_EditorUITests.swift */; };
 		8491582F2CB6D6890044A6E5 /* Fallout_Save_EditorUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8491582E2CB6D6890044A6E5 /* Fallout_Save_EditorUITestsLaunchTests.swift */; };
 		D62D0EFA2CD09B43009167A7 /* Pack in Frameworks */ = {isa = PBXBuildFile; productRef = D62D0EF92CD09B43009167A7 /* Pack */; };
-		D686E86A2CB6EF890048B97A /* FileReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686E8692CB6EF890048B97A /* FileReader.swift */; };
+		D686E86A2CB6EF890048B97A /* FalloutSaveFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D686E8692CB6EF890048B97A /* FalloutSaveFile.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,8 +47,12 @@
 		849158282CB6D6890044A6E5 /* Fallout Save EditorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Fallout Save EditorUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8491582C2CB6D6890044A6E5 /* Fallout_Save_EditorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fallout_Save_EditorUITests.swift; sourceTree = "<group>"; };
 		8491582E2CB6D6890044A6E5 /* Fallout_Save_EditorUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fallout_Save_EditorUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		D686E8692CB6EF890048B97A /* FileReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileReader.swift; sourceTree = "<group>"; };
+		D686E8692CB6EF890048B97A /* FalloutSaveFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FalloutSaveFile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		D6437A252CE18487009F297C /* SaveFileComponents */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = SaveFileComponents; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		8491580A2CB6D6880044A6E5 /* Frameworks */ = {
@@ -99,9 +103,10 @@
 		8491580F2CB6D6880044A6E5 /* Fallout Save Editor */ = {
 			isa = PBXGroup;
 			children = (
-				D686E8692CB6EF890048B97A /* FileReader.swift */,
+				D686E8692CB6EF890048B97A /* FalloutSaveFile.swift */,
 				849158102CB6D6880044A6E5 /* Fallout_Save_EditorApp.swift */,
 				849158122CB6D6880044A6E5 /* ContentView.swift */,
+				D6437A252CE18487009F297C /* SaveFileComponents */,
 				849158142CB6D6890044A6E5 /* Assets.xcassets */,
 				849158192CB6D6890044A6E5 /* Fallout_Save_Editor.entitlements */,
 				849158162CB6D6890044A6E5 /* Preview Content */,
@@ -148,6 +153,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				D6437A252CE18487009F297C /* SaveFileComponents */,
 			);
 			name = "Fallout Save Editor";
 			packageProductDependencies = (
@@ -270,7 +278,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D686E86A2CB6EF890048B97A /* FileReader.swift in Sources */,
+				D686E86A2CB6EF890048B97A /* FalloutSaveFile.swift in Sources */,
 				849158132CB6D6880044A6E5 /* ContentView.swift in Sources */,
 				849158112CB6D6880044A6E5 /* Fallout_Save_EditorApp.swift in Sources */,
 			);
