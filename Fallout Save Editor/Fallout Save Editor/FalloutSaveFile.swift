@@ -16,7 +16,6 @@ class FalloutSaveFile: ObservableObject {
     
     // Components of the save file
     var header: FalloutSaveFileHeader?
-    
     // Computed property to display the selected file name
     var fileName: String {
         urlToPresent?.lastPathComponent ?? "No File Selected"
@@ -67,6 +66,9 @@ class FalloutSaveFile: ObservableObject {
         print("=======================")
     }
     
-    
-    
+
 }
+    
+    
+    
+
