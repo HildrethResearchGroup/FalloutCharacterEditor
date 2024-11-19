@@ -8,12 +8,12 @@ import SwiftUI
 import UniformTypeIdentifiers
 
 struct ContentView: View {
-    @ObservedObject private var fileReader = FileReader()
+    @ObservedObject private var fileReader = FalloutSaveFile()
     @State private var isFileImporterPresented = false
     
-    //
+    // Define the DAT file type for the file importer
     let datFileType = UTType(filenameExtension: "dat") ?? .data
-
+    
     var body: some View {
         VStack {
             Text("Selected File: \(fileReader.fileName)")
@@ -41,6 +41,15 @@ struct ContentView: View {
                     case .success(let url):
                         fileReader.urlToPresent = url
                         fileReader.loadSaveFile(from: url) // Call the file loader
+                        fileReader.printHeaderContents()    // Print header contents
+                        
+                        // Initialize the inspector with the loaded data
+                        if let fileData = try? Data(contentsOf: url) {
+                            let inspector = FalloutSaveInspector(data: fileData)
+                            inspector.inspectFunction5()  // Inspect and print Function 5 data
+                            inspector.inspectFunction6()  // Inspect and print Function 6 data
+                        }
+
                     case .failure(let error):
                         fileReader.fileSize = "File selection failed: \(error.localizedDescription)"
                     }
@@ -50,4 +59,3 @@ struct ContentView: View {
         .padding()
     }
 }
-
