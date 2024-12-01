@@ -1,27 +1,33 @@
 import SwiftUI
 import UniformTypeIdentifiers
+import Observation
+
+@Observable
+class SaveData {
+    // Header fields and their initial values
+    var playerName = ""
+    var saveGameName = ""
+    var initialPlayerName = ""
+    var initialSaveGameName = ""
+
+    // Stats fields and their initial values
+    var strengthBonus = 0
+    var perceptionBonus = 0
+    var enduranceBonus = 0
+    var charismaBonus = 0
+    var intelligenceBonus = 0
+    var agilityBonus = 0
+    var luckBonus = 0
+    var initialStats: [String: Int] = [:] // Stores initial values for stats
+}
 
 struct ContentView: View {
     @State private var fileReader = FalloutSaveFile()
     @State private var isFileImporterPresented = false
     @State private var selectedTab = "Header" // State to track the selected tab
-
-    // Header fields and their initial values
-    @State private var playerName = ""
-    @State private var saveGameName = ""
-    @State private var initialPlayerName = ""
-    @State private var initialSaveGameName = ""
-
-    // Stats fields and their initial values
-    @State private var strengthBonus = 0
-    @State private var perceptionBonus = 0
-    @State private var enduranceBonus = 0
-    @State private var charismaBonus = 0
-    @State private var intelligenceBonus = 0
-    @State private var agilityBonus = 0
-    @State private var luckBonus = 0
-    @State private var initialStats: [String: Int] = [:] // Stores initial values for stats
-
+    
+    @State private var saveData = SaveData()
+    
     private var isFileLoaded: Bool {
         fileReader.header != nil
     }
@@ -36,7 +42,7 @@ struct ContentView: View {
                     .font(.headline)
 
                 VStack(alignment: .leading, spacing: 5) {
-                    labeledRow(label: "Save Game Name", value: saveGameName.isEmpty ? "No File Selected" : saveGameName)
+                    labeledRow(label: "Save Game Name", value: saveData.saveGameName.isEmpty ? "No File Selected" : saveData.saveGameName)
                     labeledRow(label: "File Size", value: fileReader.fileSize)
                 }
                 Spacer()
@@ -106,28 +112,28 @@ struct ContentView: View {
                     fileReader.loadSaveFile(from: url)
                     if let header = fileReader.header {
                         // Populate initial values
-                        playerName = header.playerName ?? ""
-                        saveGameName = header.saveGameName ?? ""
-                        initialPlayerName = playerName
-                        initialSaveGameName = saveGameName
+                        saveData.playerName = header.playerName ?? ""
+                        saveData.saveGameName = header.saveGameName ?? ""
+                        saveData.initialPlayerName = saveData.playerName
+                        saveData.initialSaveGameName = saveData.saveGameName
 
                         // Populate stats
-                        strengthBonus = fileReader.strength
-                        perceptionBonus = fileReader.perception
-                        enduranceBonus = fileReader.endurance
-                        charismaBonus = fileReader.charisma
-                        intelligenceBonus = fileReader.intelligence
-                        agilityBonus = fileReader.agility
-                        luckBonus = fileReader.luck
+                        saveData.strengthBonus = fileReader.strength
+                        saveData.perceptionBonus = fileReader.perception
+                        saveData.enduranceBonus = fileReader.endurance
+                        saveData.charismaBonus = fileReader.charisma
+                        saveData.intelligenceBonus = fileReader.intelligence
+                        saveData.agilityBonus = fileReader.agility
+                        saveData.luckBonus = fileReader.luck
 
-                        initialStats = [
-                            "Strength": strengthBonus,
-                            "Perception": perceptionBonus,
-                            "Endurance": enduranceBonus,
-                            "Charisma": charismaBonus,
-                            "Intelligence": intelligenceBonus,
-                            "Agility": agilityBonus,
-                            "Luck": luckBonus
+                        saveData.initialStats = [
+                            "Strength": saveData.strengthBonus,
+                            "Perception": saveData.perceptionBonus,
+                            "Endurance": saveData.enduranceBonus,
+                            "Charisma": saveData.charismaBonus,
+                            "Intelligence": saveData.intelligenceBonus,
+                            "Agility": saveData.agilityBonus,
+                            "Luck": saveData.luckBonus
                         ]
 
                         // Print to terminal
@@ -148,8 +154,8 @@ struct ContentView: View {
                 .font(.headline)
 
             Group {
-                labeledEditableRow(label: "Player Name", value: $playerName, isEditable: isFileLoaded)
-                labeledEditableRow(label: "Save Game Name", value: $saveGameName, isEditable: isFileLoaded)
+                labeledEditableRow(label: "Player Name", value: $saveData.playerName, isEditable: isFileLoaded)
+                labeledEditableRow(label: "Save Game Name", value: $saveData.saveGameName, isEditable: isFileLoaded)
             }
             Spacer()
         }
@@ -163,13 +169,13 @@ struct ContentView: View {
                 .font(.headline)
 
             VStack(alignment: .leading, spacing: 10) {
-                statRow(label: "Strength", value: $strengthBonus)
-                statRow(label: "Perception", value: $perceptionBonus)
-                statRow(label: "Endurance", value: $enduranceBonus)
-                statRow(label: "Charisma", value: $charismaBonus)
-                statRow(label: "Intelligence", value: $intelligenceBonus)
-                statRow(label: "Agility", value: $agilityBonus)
-                statRow(label: "Luck", value: $luckBonus)
+                statRow(label: "Strength", value: $saveData.strengthBonus)
+                statRow(label: "Perception", value: $saveData.perceptionBonus)
+                statRow(label: "Endurance", value: $saveData.enduranceBonus)
+                statRow(label: "Charisma", value: $saveData.charismaBonus)
+                statRow(label: "Intelligence", value: $saveData.intelligenceBonus)
+                statRow(label: "Agility", value: $saveData.agilityBonus)
+                statRow(label: "Luck", value: $saveData.luckBonus)
             }
             Spacer()
         }
@@ -179,16 +185,16 @@ struct ContentView: View {
     private func resetCurrentTab() {
         switch selectedTab {
         case "Header":
-            playerName = initialPlayerName
-            saveGameName = initialSaveGameName
+            saveData.playerName = saveData.initialPlayerName
+            saveData.saveGameName = saveData.initialSaveGameName
         case "Stats":
-            if let initial = initialStats["Strength"] { strengthBonus = initial }
-            if let initial = initialStats["Perception"] { perceptionBonus = initial }
-            if let initial = initialStats["Endurance"] { enduranceBonus = initial }
-            if let initial = initialStats["Charisma"] { charismaBonus = initial }
-            if let initial = initialStats["Intelligence"] { intelligenceBonus = initial }
-            if let initial = initialStats["Agility"] { agilityBonus = initial }
-            if let initial = initialStats["Luck"] { luckBonus = initial }
+            if let initial = saveData.initialStats["Strength"] { saveData.strengthBonus = initial }
+            if let initial = saveData.initialStats["Perception"] { saveData.perceptionBonus = initial }
+            if let initial = saveData.initialStats["Endurance"] { saveData.enduranceBonus = initial }
+            if let initial = saveData.initialStats["Charisma"] { saveData.charismaBonus = initial }
+            if let initial = saveData.initialStats["Intelligence"] { saveData.intelligenceBonus = initial }
+            if let initial = saveData.initialStats["Agility"] { saveData.agilityBonus = initial }
+            if let initial = saveData.initialStats["Luck"] { saveData.luckBonus = initial }
         default:
             break
         }
