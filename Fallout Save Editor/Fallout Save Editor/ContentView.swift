@@ -1,6 +1,7 @@
 import SwiftUI
 import UniformTypeIdentifiers
 import Observation
+import Combine
 
 @Observable
 class SaveData {
@@ -11,14 +12,20 @@ class SaveData {
     var initialSaveGameName = ""
 
     // Stats fields and their initial values
-    var strengthBonus = 0
-    var perceptionBonus = 0
-    var enduranceBonus = 0
-    var charismaBonus = 0
-    var intelligenceBonus = 0
-    var agilityBonus = 0
-    var luckBonus = 0
+    var strengthBonus : Int = 0
+    var perceptionBonus : Int = 0
+    var enduranceBonus : Int = 0
+    var charismaBonus : Int = 0
+    var intelligenceBonus : Int = 0
+    var agilityBonus : Int = 0
+    var luckBonus: Int = 0
     var initialStats: [String: Int] = [:] // Stores initial values for stats
+    
+    // Additional Player stats
+    var armourClass : Int = 0
+    var carryWeight : Int = 0
+    var playerLevel : Int = 0
+    var playerHealth : Int = 0
 }
 
 struct ContentView: View {
@@ -27,6 +34,17 @@ struct ContentView: View {
     @State private var selectedTab = "Header" // State to track the selected tab
     
     @State private var saveData = SaveData()
+    
+    // temporary variables to check placement
+    @State private var isHovering = false
+    @State private var hoverLocation: CGPoint = .zero
+    @State private var showInformationActionBoy = false
+    @State private var actionBoyisOn = false
+    @State private var showInformationTrait = false
+    @State private var TraitisOn = false
+    
+    @State private var errorPresent = false
+    // end of temps
     
     private var isFileLoaded: Bool {
         fileReader.header != nil
@@ -61,22 +79,27 @@ struct ContentView: View {
             VStack(alignment: .center, spacing: 10) {
                 Picker("", selection: $selectedTab) {
                     Text("Header").tag("Header")
-                    Text("Stats").tag("Stats")
                     Text("Inventory").tag("Inventory")
-                    Text("Skills/Perks").tag("Skills/Perks")
                 }
                 .pickerStyle(.segmented)
                 .padding()
 
                 Group {
                     if selectedTab == "Header" {
-                        headerView
-                    } else if selectedTab == "Stats" {
-                        statsView
+                        HStack{
+                            VStack{
+                                headerView
+                                perksListView
+                                perksInfoView
+                                traitsListView
+                                traitsInfoView
+                            }//.frame(width: 250)
+                            VStack{
+                                statsView
+                            }//.frame(width: 350, height: 700)
+                         }
                     } else if selectedTab == "Inventory" {
                         comingSoonView(title: "Inventory")
-                    } else if selectedTab == "Skills/Perks" {
-                        comingSoonView(title: "Skills/Perks")
                     }
                 }
                 .frame(maxWidth: 600) // Limit width of central content
@@ -90,6 +113,8 @@ struct ContentView: View {
                     Button("Save") {
                         print("Saving current data...")
                     }
+                    // save button is disabled with any invalid input entered
+                    .disabled(errorPresent)
                     .buttonStyle(.borderedProminent)
 
                     Button("Reset") {
@@ -149,17 +174,17 @@ struct ContentView: View {
 
     // Header View Content
     var headerView: some View {
-        VStack(alignment: .leading, spacing: 10) {
-            Text("Header Information")
-                .font(.headline)
-
-            Group {
-                labeledEditableRow(label: "Player Name", value: $saveData.playerName, isEditable: isFileLoaded)
-                labeledEditableRow(label: "Save Game Name", value: $saveData.saveGameName, isEditable: isFileLoaded)
+            VStack(alignment: .leading, spacing: 10) {
+                Text("Header Information")
+                    .font(.headline)
+                
+                Group {
+                    labeledEditableRow(label: "Player Name", value: $saveData.playerName, isEditable: isFileLoaded)
+                    labeledEditableRow(label: "Save Game Name", value: $saveData.saveGameName, isEditable: isFileLoaded)
+                }
+                Spacer()
             }
-            Spacer()
-        }
-        .padding()
+            .padding()
     }
 
     // Stats View Content
@@ -167,21 +192,119 @@ struct ContentView: View {
         VStack(alignment: .leading, spacing: 20) {
             Text("Character Stats")
                 .font(.headline)
-
-            VStack(alignment: .leading, spacing: 10) {
-                statRow(label: "Strength", value: $saveData.strengthBonus)
-                statRow(label: "Perception", value: $saveData.perceptionBonus)
-                statRow(label: "Endurance", value: $saveData.enduranceBonus)
-                statRow(label: "Charisma", value: $saveData.charismaBonus)
-                statRow(label: "Intelligence", value: $saveData.intelligenceBonus)
-                statRow(label: "Agility", value: $saveData.agilityBonus)
-                statRow(label: "Luck", value: $saveData.luckBonus)
-            }
+            Form{
+                HStack{
+                    statRow(label: "Strength", value: $saveData.strengthBonus)
+                }
+                HStack{
+                    statRow(label: "Perception", value: $saveData.perceptionBonus)
+                }
+                HStack{
+                    statRow(label: "Endurance", value: $saveData.enduranceBonus)
+                }
+                HStack{
+                    statRow(label: "Charisma", value: $saveData.charismaBonus)
+                }
+                HStack{
+                    statRow(label: "Intelligence", value: $saveData.intelligenceBonus)
+                }
+                HStack{
+                    statRow(label: "Agility", value: $saveData.agilityBonus)
+                }
+                HStack{
+                    statRow(label: "Luck", value: $saveData.luckBonus)
+                }
+                HStack{
+                    statRow(label: "Armour Class", value: $saveData.armourClass)
+                }
+                HStack{
+                    statRow(label: "Carry Weight", value: $saveData.carryWeight)
+                }
+                HStack{
+                    statRow(label: "Level", value: $saveData.playerLevel)
+                }
+                HStack{
+                    statRow(label: "Health", value: $saveData.playerHealth)
+                }
+            }.formStyle(.grouped)
             Spacer()
         }
         .padding()
     }
+    
+    // view to display list of game perks
+    var perksListView: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            Text("Perks")
+                .font(.headline)
+            Form{
+                VStack{
+                    Toggle(isOn : $actionBoyisOn){
+                        Text("Action Boy")
+                    }.toggleStyle(.checkbox)
+                }
+            }.onContinuousHover{ phase in
+                switch phase {
+                case .active(let location):
+                    hoverLocation = location
+                    isHovering = true
+                    showInformationActionBoy = true
+                case .ended:
+                    isHovering = false
+                    showInformationActionBoy = false
+                }
+            }
+        }
+    }
+    
+    // View to display description of game perks
+    var perksInfoView: some View {
+        Form{
+            VStack{
+                if showInformationActionBoy {
+                    Text("Additional Action Point Available in Combat")
+                }
+            }.frame(width: 150, height: 85)
+        }
+    }
+    
+    // view to display list of game perks
+    var traitsListView: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            Text("Traits")
+                .font(.headline)
+            Form{
+                VStack{
+                    Toggle(isOn : $TraitisOn){
+                        Text("Bloody Mess")
+                    }.toggleStyle(.checkbox)
+                }
+            }.onContinuousHover{ phase in
+                switch phase {
+                case .active(let location):
+                    hoverLocation = location
+                    isHovering = true
+                    showInformationTrait = true
+                case .ended:
+                    isHovering = false
+                    showInformationTrait = false
+                }
+            }
+        }
+    }
+    
+    // View to display description of game perks
+    var traitsInfoView: some View {
+        Form{
+            VStack{
+                if showInformationTrait {
+                    Text("More Violent Death Annimations. No Penalty.")
+                }
+            }.frame(width: 150, height: 85)
+        }
+    }
 
+    // Function that resets any changes made to SPECIAL STATS
     private func resetCurrentTab() {
         switch selectedTab {
         case "Header":
@@ -229,15 +352,26 @@ struct ContentView: View {
     }
 
     private func statRow(label: String, value: Binding<Int>) -> some View {
-        HStack {
-            Text("\(label):")
-                .frame(maxWidth: .infinity, alignment: .leading)
-            TextField("0", value: value, format: .number)
-                .textFieldStyle(.roundedBorder)
-                .frame(maxWidth: 100)
-        }
+            HStack {
+                Text("\(label):")
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                TextField("\(value.wrappedValue + 0)" , value: value, format: .number)
+                    .onChange(of : value.wrappedValue) {
+                        // If value is negative or very large
+                        if (value.wrappedValue<0 || value.wrappedValue>100) {
+                            errorPresent = true
+                        }
+                        else {
+                            errorPresent = false
+                        }
+                    }
+                    .textFieldStyle(.roundedBorder)
+                    .frame(maxWidth: 100)
+                    .fixedSize()
+            }
     }
 
+    // Placeholder to TODO functionality
     private func comingSoonView(title: String) -> some View {
         VStack {
             Text("\(title)")
