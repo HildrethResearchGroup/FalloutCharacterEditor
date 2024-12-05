@@ -26,6 +26,9 @@ class SaveData {
     var carryWeight : Int = 0
     var playerLevel : Int = 0
     var playerHealth : Int = 0
+    
+    // Variables for input 
+//    var inputVar : Int = 0
 }
 
 // Class to be expanded on for game perk tree
@@ -365,10 +368,36 @@ struct ContentView: View {
         }
     }
 
+    //Function populates rows of stats
+    // Future imporvements: error handling for user input and correctly handling bonuses
     private func statRow(label: String, value: Binding<Int>) -> some View {
             HStack {
                 Text("\(label):")
                     .frame(maxWidth: .infinity, alignment: .leading)
+                
+                /*
+                 This function is great for populating the entire stats table without
+                 redundant code; however, it has caused some difficulties regarding
+                 each character stat needing to be indidually changes based on
+                 user input. Either creating more functions to handle
+                 parts of that separately or another solution will need to be
+                 found so that not every textfield is changed.
+                 
+                 TextField("\(value.wrappedValue + saveData.inputVar)" , value: $saveData.inputVar, format: .number)
+                     .onChange(of : value.wrappedValue) {
+                         // If value is negative or very large
+                         if (value.wrappedValue<0 || value.wrappedValue>100) {
+                             errorPresent = true
+                         }
+                         else {
+                             errorPresent = false
+                             saveData.inputVar = 0
+                         }
+                     }
+                 */
+                
+                // This version of this function does not change every textfield for the user changing it
+                // which is nice, however, it does not add to the initial character stat
                 TextField("\(value.wrappedValue + 0)" , value: value, format: .number)
                     .onChange(of : value.wrappedValue) {
                         // If value is negative or very large
@@ -383,6 +412,20 @@ struct ContentView: View {
                     .frame(maxWidth: 100)
                     .fixedSize()
             }
+    }
+    
+    // function to return proper initial stat for when user changes a stat
+    // Could be expanded on for rest of stats or values could be passed more efficiently if needed
+    private func retrieveStat(label: String) -> Int{
+        if label=="Strength"{
+            return saveData.strengthBonus
+        }
+        else if label=="Perception"{
+            return saveData.perceptionBonus
+        }
+        else{
+            return 0
+        }
     }
 
     // Placeholder to TODO functionality
