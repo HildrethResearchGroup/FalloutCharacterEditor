@@ -28,23 +28,34 @@ class SaveData {
     var playerHealth : Int = 0
 }
 
+// Class to be expanded on for game perk tree
+@Observable
+class PerkStates {
+    var isHovering = false
+    var hoverLocation: CGPoint = .zero
+    var showInformationActionBoy = false
+    var actionBoyisOn = false
+}
+
+// Class to be expanded on for game traits
+@Observable
+class TraitStates {
+    var isHovering = false
+    var hoverLocation: CGPoint = .zero
+    var showInformationTrait = false
+    var TraitisOn = false
+}
+
 struct ContentView: View {
     @State private var fileReader = FalloutSaveFile()
     @State private var isFileImporterPresented = false
     @State private var selectedTab = "Header" // State to track the selected tab
     
     @State private var saveData = SaveData()
-    
-    // temporary variables to check placement
-    @State private var isHovering = false
-    @State private var hoverLocation: CGPoint = .zero
-    @State private var showInformationActionBoy = false
-    @State private var actionBoyisOn = false
-    @State private var showInformationTrait = false
-    @State private var TraitisOn = false
+    @State private var perksVar = PerkStates()
+    @State private var traitsVar = TraitStates()
     
     @State private var errorPresent = false
-    // end of temps
     
     private var isFileLoaded: Bool {
         fileReader.header != nil
@@ -96,6 +107,9 @@ struct ContentView: View {
                             }//.frame(width: 250)
                             VStack{
                                 statsView
+                                if errorPresent{
+                                    Text("Error Present: Unable to Save File Changes.").bold()
+                                }
                             }//.frame(width: 350, height: 700)
                          }
                     } else if selectedTab == "Inventory" {
@@ -239,19 +253,19 @@ struct ContentView: View {
                 .font(.headline)
             Form{
                 VStack{
-                    Toggle(isOn : $actionBoyisOn){
+                    Toggle(isOn : $perksVar.actionBoyisOn){
                         Text("Action Boy")
                     }.toggleStyle(.checkbox)
                 }
             }.onContinuousHover{ phase in
                 switch phase {
                 case .active(let location):
-                    hoverLocation = location
-                    isHovering = true
-                    showInformationActionBoy = true
+                    perksVar.hoverLocation = location
+                    perksVar.isHovering = true
+                    perksVar.showInformationActionBoy = true
                 case .ended:
-                    isHovering = false
-                    showInformationActionBoy = false
+                    perksVar.isHovering = false
+                    perksVar.showInformationActionBoy = false
                 }
             }
         }
@@ -261,7 +275,7 @@ struct ContentView: View {
     var perksInfoView: some View {
         Form{
             VStack{
-                if showInformationActionBoy {
+                if perksVar.showInformationActionBoy {
                     Text("Additional Action Point Available in Combat")
                 }
             }.frame(width: 150, height: 85)
@@ -275,19 +289,19 @@ struct ContentView: View {
                 .font(.headline)
             Form{
                 VStack{
-                    Toggle(isOn : $TraitisOn){
+                    Toggle(isOn : $traitsVar.TraitisOn){
                         Text("Bloody Mess")
                     }.toggleStyle(.checkbox)
                 }
             }.onContinuousHover{ phase in
                 switch phase {
                 case .active(let location):
-                    hoverLocation = location
-                    isHovering = true
-                    showInformationTrait = true
+                    traitsVar.hoverLocation = location
+                    traitsVar.isHovering = true
+                    traitsVar.showInformationTrait = true
                 case .ended:
-                    isHovering = false
-                    showInformationTrait = false
+                    traitsVar.isHovering = false
+                    traitsVar.showInformationTrait = false
                 }
             }
         }
@@ -297,7 +311,7 @@ struct ContentView: View {
     var traitsInfoView: some View {
         Form{
             VStack{
-                if showInformationTrait {
+                if traitsVar.showInformationTrait {
                     Text("More Violent Death Annimations. No Penalty.")
                 }
             }.frame(width: 150, height: 85)
