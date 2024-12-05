@@ -27,8 +27,8 @@ class SaveData {
     var playerLevel : Int = 0
     var playerHealth : Int = 0
     
-    // Variables for input 
-//    var inputVar : Int = 0
+    // Variables for input
+    var inputVar : Int = 0
 }
 
 // Class to be expanded on for game perk tree
@@ -243,6 +243,18 @@ struct ContentView: View {
                 HStack{
                     statRow(label: "Health", value: $saveData.playerHealth)
                 }
+                /*
+                 The below strength stat is a sort of test stack to show
+                 another way it appears user input could be taken. However,
+                 this solution appears redundant with code so writing a
+                 function similar to statRow that handles value
+                 slightly different might be a good direction.
+                 */
+                HStack{
+                    Text("Strength II: \(saveData.strengthBonus + saveData.inputVar)")
+                    TextField("", value: $saveData.inputVar, format: .number)
+                        .textFieldStyle(.roundedBorder)
+                }
             }.formStyle(.grouped)
             Spacer()
         }
@@ -378,7 +390,7 @@ struct ContentView: View {
                 /*
                  This function is great for populating the entire stats table without
                  redundant code; however, it has caused some difficulties regarding
-                 each character stat needing to be indidually changes based on
+                 each character stat needing to be indivdually changed based on
                  user input. Either creating more functions to handle
                  parts of that separately or another solution will need to be
                  found so that not every textfield is changed.
@@ -395,6 +407,7 @@ struct ContentView: View {
                          }
                      }
                  */
+                
                 
                 // This version of this function does not change every textfield for the user changing it
                 // which is nice, however, it does not add to the initial character stat
